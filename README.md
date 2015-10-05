@@ -1,15 +1,31 @@
 # Bank Accounts
 
+We will be working with the concept of bank accounts in order to explore more object-oriented code as well as a few other new topics.
 
-## Breakfast
+## Wave 1
 
-Create an `Account` class with a minimum of 6 specs. The class should have the following methods:
+Create a `Bank` module which will contain your `Account` class and any future bank account logic.
+
+Create an `Account` class which should have the following methods:
 - `self.new(id, initial_balance)`: creates a new instance with the instance variable `id` and 'initial_balance' assigned
   - Account cannot be created with initialize negative balance - this will `raise` an `ArgumentError` (Google this)
-- `#withdraw(amount)`: The input amount gets taken out of the account as result of an ATM transaction. Return value should be the updated account balance.
+- `#withdraw(amount)`: The input amount gets taken out of the account as result of a simulated ATM transaction. Method should return the updated account balance.
   - Does not allow the account to go negative - Will output a warning message and return the original un-modified balance
-- `#deposit(amount)`: Adds the input amount to the account balance as a result of an ATM transaction. Return value should be the updated account balance
-- `#balance`: Returns the current account balance
+- `#deposit(amount)`: Adds the input amount to the account balance as a result of a simulated ATM transaction. Method should return the updated account balance.
+- `#balance`: Returns the current account balance.
+
+Optional:?
+
+
+## Wave 2
+- CSVs
+- Enumerables
+
+
+
+## Wave 3
+- Add RSpec
+- Inheritance
 
 Create a `SavingsAccount` class with a minimum of 6 specs. The class should inherit behavior from the `Account` class. It should include updated logic within the following methods:
 - `self.new(id, initial_balance)`: creates a new instance with the instance variable `id` and 'initial_balance' assigned
@@ -22,6 +38,7 @@ It should include the following new methods:
   - Input rate is assumed to be a percentage (i.e. 0.25).
   - The formula for calculating interest is `balance * rate/100`
     - Example: If the interest rate is 0.25% and the balance is $10,000, then the interest is $25 and the new balance becomes $10,025.
+
 
 ## Lunch
 
