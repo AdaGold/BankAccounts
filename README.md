@@ -35,7 +35,7 @@ Create an `Account` class which should have the following functionality:
 - Add an `owner` property to each Account to track information about who owns the account.
   - The `Account` can be created with an `owner`, OR you can create a method that will add the `owner` after the `Account` has already been created.
 
-
+<!--
 ## Wave 2
 ### CSV Files!
 - Add the following **class** methods to your existing `Account` class
@@ -58,7 +58,7 @@ Create an `Account` class which should have the following functionality:
     - `self.find(id)` - returns an instance of `Owner` where the value of the id field in the CSV matches the passed parameter
 
 ## Wave 3
-Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include updated logic within the following functionality:
+Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include updated logic with the following functionality:
 - An updated `initialize` method:
   - The initial balance cannot be less than $10. If it is, this will `raise` an `ArgumentError`
 - An updated `withdraw` method:
@@ -66,21 +66,22 @@ Create a `SavingsAccount` class which should inherit behavior from the `Account`
   - Does not allow the account to go below the $10 minimum balance - Will output a warning message and return the original un-modified balance
 
 It should include the following new methods:
-- `#add_interest(rate)`: Calculate the interest on the balance and add the interest to the balance. Return the interest that was calculated and added to the balance (not the updated balance).
+- `#add_interest(rate)`: Calculate the interest on the balance and add the interest to the balance. Return the **interest** that was calculated and added to the balance (not the updated balance).
   - Input rate is assumed to be a percentage (i.e. 0.25).
   - The formula for calculating interest is `balance * rate/100`
-    - Example: If the interest rate is 0.25% and the balance is $10,000, then the interest is $25 and the new balance becomes $10,025.
+    - Example: If the interest rate is 0.25% and the balance is $10,000, then the interest that is returned is $25 and the new balance becomes $10,025.
 
-Create a `CheckingAccount` class which should inherit behavior from the `Account` class.
-
+Create a `CheckingAccount` class which should inherit behavior from the `Account` class. It should include updated logic with the following functionality:
 - `#withdraw(amount)`: The input amount gets taken out of the account as result of an ATM transaction. Each withdrawal 'transaction' incurs a fee of $1 that is taken out of the balance. Returns the updated account balance.
-  - Does not allow the account to go negative. Will output a warning message and return the original un-modified balance
+  - Does not allow the account to go negative. Will output a warning message and return the original un-modified balance.
 - `#withdraw_using_check(amount)`: The input amount gets taken out of the account as a result of a check withdrawal. Returns the updated account balance.
   - Allows the account to go into overdraft up to -$10 but not any lower
   - The user is allowed three free check uses in one month, but any subsequent use adds a $2 transaction fee
 - `#reset_checks`: Resets the number of checks used to zero
 
-<!--
+
+
+
 ## Optional:
 
 Create a `MoneyMarketAccount` class with a minimum of 6 specs. The class should inherit behavior from the `Account` class.
