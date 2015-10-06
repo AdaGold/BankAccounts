@@ -71,9 +71,6 @@ It should include the following new methods:
   - The formula for calculating interest is `balance * rate/100`
     - Example: If the interest rate is 0.25% and the balance is $10,000, then the interest is $25 and the new balance becomes $10,025.
 
-
-### Optional:
-
 Create a `CheckingAccount` class which should inherit behavior from the `Account` class.
 
 - `#withdraw(amount)`: The input amount gets taken out of the account as result of an ATM transaction. Each withdrawal 'transaction' incurs a fee of $1 that is taken out of the balance. Returns the updated account balance.
@@ -83,7 +80,8 @@ Create a `CheckingAccount` class which should inherit behavior from the `Account
   - The user is allowed three free check uses in one month, but any subsequent use adds a $2 transaction fee
 - `#reset_checks`: Resets the number of checks used to zero
 
-## More Optional:
+<!--
+## Optional:
 
 Create a `MoneyMarketAccount` class with a minimum of 6 specs. The class should inherit behavior from the `Account` class.
 - A maximum of 6 transactions (deposits or withdrawals) are allowed per month on this account type
@@ -97,3 +95,4 @@ Create a `MoneyMarketAccount` class with a minimum of 6 specs. The class should 
   - Exception to the above: A deposit performed to reach or exceed the minimum balance of $10,000 is not counted as part of the 6 transactions.
 - `#add_interest(rate)`: Calculate the interest on the balance and add the interest to the balance. Return the interest that was calculated and added to the balance (not the updated balance). Note** This is the same as the `SavingsAccount` interest.
 - `#reset_transactions`: Resets the number of transactions to zero
+-->
