@@ -57,6 +57,21 @@ Create an `Account` class which should have the following functionality:
     - `self.all` - returns a collection of `Owner` instances, representing all of the Owners described in the CSV. See below for the CSV file specifications
     - `self.find(id)` - returns an instance of `Owner` where the value of the id field in the CSV matches the passed parameter
 
+    Bank::Owner
+    The data, in order in the CSV, consists of:
+    **ID** - (Fixnum) a unique identifier for that Owner  
+    **Last Name** - (String) the owner's last name  
+    **First Name** - (String) the owner's first name  
+    **Street Addess** - (String) the owner's street address  
+    **City** - (String) the owner's city  
+    **State** - (String) the owner's state  
+
+    To create the relationship between the accounts and the owners use the `account_owners` CSV file.
+    The data for this file, in order in the CSV, consists of:
+    **Account ID** - (Fixnum) a unique identifier corresponding to an account
+    **Owner ID** - (Fixnum) a unique identifier corresponding to an owner
+
+
 ## Wave 3
 Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include updated logic with the following functionality:
 - An updated `initialize` method:
