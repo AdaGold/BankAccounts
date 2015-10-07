@@ -59,10 +59,10 @@ Create an `Account` class which should have the following functionality:
     - `self.all` - returns a collection of `Owner` instances, representing all of the Owners described in the CSV. See below for the CSV file specifications
     - `self.find(id)` - returns an instance of `Owner` where the value of the id field in the CSV matches the passed parameter
 
-    Bank::Owner
-    The data, in order in the CSV, consists of:
+    Bank::Owner  
+    The data, in order in the CSV, consists of:  
     **ID** - (Fixnum) a unique identifier for that Owner  
-    **Last Name** - (String) the owner's last name  
+    **Last Name** - (String) the owner's last name   
     **First Name** - (String) the owner's first name  
     **Street Addess** - (String) the owner's street address  
     **City** - (String) the owner's city  
