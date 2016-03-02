@@ -62,7 +62,8 @@ The data, in order in the CSV, consists of:
 1. **City** - (String) the owner's city  
 1. **State** - (String) the owner's state  
 
-To create the relationship between the accounts and the owners use an `account_owners.csv` file. The data for this file, in order in the CSV, consists of:
+- Add the instance method `accounts` to the `Owner` class. This method should return a collection of `Account` instances that belong to the specific owner.  To create the relationship between the accounts and the owners use an `account_owners.csv` file. The data for this file, in order in the CSV, consists of:
+
 1. **Account ID** - (Fixnum) a unique identifier corresponding to an `Account` instance.
 1. **Owner ID** - (Fixnum) a unique identifier corresponding to an `Owner` instance.
 
