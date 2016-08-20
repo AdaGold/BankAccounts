@@ -17,6 +17,13 @@ We will be working with the concept of bank accounts in order to explore more ob
 
 ## Wave 1
 
+### Learning Goals
+- Create a **class** inside of a **module**
+- Create **methods** inside the **class* to perform actions
+- Learn how Ruby does error handling
+
+### Requirements
+
 Create a `Bank` module which will contain your `Account` class and any future bank account logic.
 
 Create an `Account` class which should have the following functionality:
@@ -37,7 +44,12 @@ Create an `Account` class which should have the following functionality:
 
 
 ## Wave 2
-### CSV Files!
+
+### Learning Goals
+- Create and use class methods
+- Use a CSV file for loading data
+
+### Requirements
 - Update the `Account` class to be able to handle all of these fields from the CSV file used as input.
   - For example, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your Account using that data
 - Add the following **class** methods to your existing `Account` class
@@ -74,6 +86,11 @@ Create an `Account` class which should have the following functionality:
     **Owner ID** - (Fixnum) a unique identifier corresponding to an owner
 
 ## Wave 3
+### Learning Goals
+- Use inheritance to share some behavior across classes
+- Enhance functionality built in Wave 1
+
+### Requirements
 Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include the following updated functionality:
 - The initial balance cannot be less than $10. If it is, this will `raise` an `ArgumentError`
 - Updated withdrawal functionality:
@@ -94,8 +111,6 @@ Create a `CheckingAccount` class which should inherit behavior from the `Account
   - Allows the account to go into overdraft up to -$10 but not any lower
   - The user is allowed three free check uses in one month, but any subsequent use adds a $2 transaction fee
 - `#reset_checks`: Resets the number of checks used to zero
-
-
 
 
 ## Optional:
