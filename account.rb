@@ -1,7 +1,7 @@
 module Bank
   class Account
     attr_accessor :withdraw_amount, :deposit_amount
-    attr_reader :balance, :id, :initial_balance
+    attr_reader :balance, :id, :initial_balance, :name
     attr_writer
 
     def initialize
@@ -10,38 +10,66 @@ module Bank
       @initial_balance = initial_balance
       @withdraw_amount = withdraw_amount
       @deposit_amount = deposit_amount
+      @name = name
     end
 
-    # A new account should be created with an ID and an initial balance
-    # A new account cannot be created with initial negative balance -
-    # this will raise an ArgumentError (Google this)
+
+    def negative_initial
+      begin
+        raise ArgumentError
+      rescue
+        puts "The initial balance cannot be negative. Please enter a positive number."
+        @initial_balance = gets.chomp.to_f
+      end
+    end
+
+    # Creates a new account should be created with an ID and an initial balance
     def create_account
-
-
+      # puts "What is your last name?"
+      # @name = gets.chomp
+      puts "What is your initial balance?"
+      @initial_balance = gets.chomp.to_f
+      while @initial_balance < 0.0
+        negative_initial
+      end
+      @balance = @initial_balance
+      @id = rand(111111..999999)
     end
 
-    # Should have a withdraw method that accepts a single parameter
-    # which represents the amount of money that will be withdrawn.
-    # This method should return the updated account balance.
-    # The withdraw method does not allow the account to go negative -
-    # Will output a warning message and return the original un-modified balance
+    # The user inputs how much money to withdraw. If the withdraw amount is greater
+    # than the balance, the user is given a warning and not allowed to withdraw
+    # that amount. Otherwise, the balance is adjusted and returned.
     def withdraw_money
-
-
+      puts "How much would you like to withdraw?"
+      @withdraw_amount = gets.chomp.to_f
+      if (@balance - @withdraw_amount) < 0
+        puts "I'm sorry, you cannot withdraw that amount, as you do not have enough money in your account."
+      else
+        @balance -= @withdraw_amount
+      end
+      return @balance
     end
 
-    # Should have a deposit method that accepts a single parameter which
-    # represents the amount of money that will be deposited. This method
-    # should return the updated account balance.
+    # The user inputs how much is to be deposited and the balance reflects that
+    # deposit
     def deposit_money
-
-
-
+      puts "How much would you like to deposit?"
+      @deposit_amount = gets.chomp.to_f
+      @balance += @deposit_amount
+      return @balance
     end
 
-    # Should be able to access the current balance of an account at any time.
+    # The current balance can be accessed at any time.
     def access_balance
       return @balance
     end
   end
 end
+
+puts "What is your last name?"
+name = gets.chomp
+name = Bank::Account.new
+name.create_account
+name.withdraw_money
+name.deposit_money
+puts name.access_balance
