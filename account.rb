@@ -13,8 +13,8 @@ module Bank
       @withdraw_amount = withdraw_amount
       @deposit_amount = deposit_amount
       @name = name
+      @owners = []
     end
-
 
     def negative_initial
       begin
@@ -27,8 +27,7 @@ module Bank
 
     # Creates a new account should be created with an ID and an initial balance
     def create_account
-      # puts "What is your last name?"
-      # @name = gets.chomp
+      create_owner
       puts "What is your initial balance?"
       @initial_balance = gets.chomp.to_f
       while @initial_balance < 0.0
@@ -67,11 +66,3 @@ module Bank
     end
   end
 end
-
-puts "What is your last name?"
-name = gets.chomp
-name = Bank::Account.new
-name.create_account
-name.withdraw_money
-name.deposit_money
-puts name.access_balance

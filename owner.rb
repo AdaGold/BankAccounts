@@ -7,6 +7,7 @@ module Bank
     attr_writer
 
     def initialize
+      @owners = []
       @first_name = first_name
       @last_name = last_name
       @street_address = street_address
@@ -15,13 +16,20 @@ module Bank
       @zip_code = zip_code
     end
 
-
-
-
+    def create_owner
+      puts "What is your first name?"
+      @first_name = gets.chomp
+      puts "What is your last name?"
+      @last_name = gets.chomp
+      puts "What is your street address?"
+      @street_address = gets.chomp
+      puts "In what city do you live?"
+      @city = gets.chomp
+      puts "In what state do you live?"
+      @state = gets.chomp
+      puts "What is your zip code?"
+      @zip_code = gets.chomp
+      @owners << owner
+    end
   end
 end
-
-
-# Add an owner property to each Account to track information about who owns the account.
-# The Account can be created with an owner, OR you can create a method that will add
-# the owner after the Account has already been created.
