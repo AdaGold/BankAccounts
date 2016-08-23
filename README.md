@@ -42,7 +42,7 @@ Create an `Account` class which should have the following functionality:
 - Add an `owner` property to each Account to track information about who owns the account.
   - The `Account` can be created with an `owner`, OR you can create a method that will add the `owner` after the `Account` has already been created.
 
-
+<!--
 ## Wave 2
 
 ### Learning Goals
@@ -127,3 +127,4 @@ Create a `MoneyMarketAccount` class which should inherit behavior from the `Acco
 - `#add_interest(rate)`: Calculate the interest on the balance and add the interest to the balance. Return the interest that was calculated and added to the balance (not the updated balance).
     - Note** This is the same as the `SavingsAccount` interest.
 - `#reset_transactions`: Resets the number of transactions to zero
+-->
