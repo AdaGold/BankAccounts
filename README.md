@@ -4,14 +4,9 @@ We will be working with the concept of bank accounts in order to explore more ob
 
 ## Baseline Setup
 
-1. This is an individual project.
-1. Clone the project master repo and create a new branch with your initials.
-1. Push your branch so it will show in the list of branches on the project master.
-1. Fork the project master.
+1. Fork this repository
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
-1. Switch to your branch by doing `git checkout [YOUR BRANCH NAME]`. *Do not work on the master branch*.
 1. `cd` into the dir create:d `$ cd BankAccounts`
-1. Run `git status` to verify the branch you are on
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.
 
 
