@@ -1,3 +1,5 @@
+require_relative 'owner'
+
 module Bank
   class Account
     attr_accessor :withdraw_amount, :deposit_amount
