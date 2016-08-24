@@ -1,4 +1,4 @@
-require_relative 'account'
+#require_relative 'account'
 
 module Bank
   class Owner
@@ -6,7 +6,7 @@ module Bank
     attr_reader :first_name, :last_name, :street_address, :city, :state, :zip_code
     attr_writer
 
-    def initialize
+    def initialize(owners, first_name, last_name, street_address, city, state, zip_code)
       @owners = []
       @first_name = first_name
       @last_name = last_name
