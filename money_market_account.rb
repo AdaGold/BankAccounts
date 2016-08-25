@@ -1,6 +1,10 @@
 require_relative 'account.rb'
 require 'csv'
 
+MINIMUM_BALANCE = 10000.00
+MAX_TRANSACTIONS = 6
+WITHDRAW_FEE = 100
+
 module Bank
   class MoneyMarketAccount < Account
     attr_accessor :balance, :interest, :number_of_transactions
@@ -14,7 +18,7 @@ module Bank
 
     def create_account(balance)
       @balance = balance.to_f/100
-      while @balance < 10000.0
+      while @balance < MINIMUM_BALANCE
         negative_initial
       end
       return @balance
@@ -23,12 +27,12 @@ module Bank
     def withdraw(dollar_amount)
       # A maximum of 6 transactions (deposits or withdrawals) are allowed per month on this
       # account type
-      if @number_of_transactions > 6
+      if @number_of_transactions > MAX_TRANSACTIONS
         puts "I'm sorry, you have exceeded the maximum number of transactions for this month."
       else
-        if (@balance - dollar_amount) < 10000.0
-          puts "That withdraw has caused your account to drop below $10,000. You have been charged a $100 fee and must make a deposit prior to another withdrawal."
-          @balance -= (@balance - dollar_amount - 100)
+        if (@balance - dollar_amount) < MINIMUM_BALANCE
+          puts "That withdrawal has caused your account to drop below $10,000. You have been charged a $100 fee and must make a deposit prior to another withdrawal."
+          @balance -= (@balance - dollar_amount - WITHDRAW_FEE)
         else
           @balance -= (dollar_amount)
         end
@@ -40,11 +44,11 @@ module Bank
     def deposit(dollar_amount)
       # A deposit performed to reach or exceed the minimum balance # of $10,000 is not
       # counted as part of the 6 maximum transactions.
-      if @balance < 10000
+      if @balance < MINIMUM_BALANCE
         @balance += dollar_amount
       # A maximum of 6 transactions (deposits or withdrawals) are allowed per month on this
       # account type
-      elsif @number_of_transactions > 6
+    elsif @number_of_transactions > MAX_TRANSACTIONS
         puts "I'm sorry, you have exceeded the maximum number of transactions for this month."
       else
         @balance += dollar_amount

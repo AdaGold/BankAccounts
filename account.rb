@@ -30,8 +30,8 @@ module Bank
     end
 
     # Creates a new account should be created with an ID and an initial balance
-    def create_account(dollar_amount)
-      @balance = (dollar_amount / 100)
+    def create_account(cents_amount)
+      @balance = (cents_amount / 100)
       while @balance < 0.0
         negative_initial
       end
@@ -41,10 +41,10 @@ module Bank
     # than the balance, the user is given a warning and not allowed to withdraw
     # that amount. Otherwise, the balance is adjusted and returned.
     def withdraw(dollar_amount)
-      if (@balance - amount) < 0
+      if (@balance - dollar_amount) < 0
         puts "I'm sorry, you cannot withdraw that amount, as you do not have enough money in your account."
       else
-        @balance -= amount
+        @balance -= dollar_amount
       end
       return @balance
     end
