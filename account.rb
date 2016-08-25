@@ -7,11 +7,11 @@ module Bank
     attr_reader :balance, :id, :creation_time
     attr_writer
 
-    def initialize(account_hash)
-      @balance = account_hash[:balance]
-      @id = account_hash[:id]
-      @creation_time = account_hash[:creation_time]
-      create_account(account_hash[:balance])
+    def initialize() #(account_hash)
+      # @balance = account_hash[:balance]
+      # @id = account_hash[:id]
+      # @creation_time = account_hash[:creation_time]
+      # create_account(account_hash[:balance])
     end
 
     def negative_initial
@@ -20,6 +20,7 @@ module Bank
       rescue
         puts "The initial balance cannot be negative. Please enter a positive number."
         @balance = gets.chomp.to_f
+        @balance = @balance/100
       end
     end
 
@@ -79,7 +80,6 @@ module Bank
           return var
         end
       end
-      return nil
     end
 
     def print_props
@@ -91,8 +91,8 @@ end
 # bank_branch = Bank::Account.all
 # puts bank_branch
 
-b = Bank::Account.find(1212)
-puts b
+# b = Bank::Account.find(1212)
+# puts b
 
 
 # bank_branch.each do |a|
