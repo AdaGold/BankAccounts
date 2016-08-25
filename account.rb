@@ -31,7 +31,7 @@ module Bank
 
     # Creates a new account should be created with an ID and an initial balance
     def create_account(dollar_amount)
-      @balance = dollar_amount/100
+      @balance = (dollar_amount / 100)
       while @balance < 0.0
         negative_initial
       end

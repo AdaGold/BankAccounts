@@ -63,8 +63,8 @@ module Bank
   end
 end
 
-account_owners = Bank::Owner.all
-puts account_owners
-
-o = Bank::Owner.find(20)
-puts o
+# account_owners = Bank::Owner.all
+# puts account_owners
+#
+# o = Bank::Owner.find(20)
+# puts o
