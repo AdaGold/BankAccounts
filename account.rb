@@ -1,3 +1,8 @@
+# If running this program on its own, the items commented out in
+# def initialize need to be un-commented. To get savings_account.rb,
+# checking_account.rb, and money_market_account.rb to work, I had
+# to disable the hash creation in this program.
+
 #require_relative 'owner'
 require 'csv'
 
@@ -25,8 +30,8 @@ module Bank
     end
 
     # Creates a new account should be created with an ID and an initial balance
-    def create_account(balance)
-      @balance = balance/100
+    def create_account(dollar_amount)
+      @balance = dollar_amount/100
       while @balance < 0.0
         negative_initial
       end
@@ -35,7 +40,7 @@ module Bank
     # The user inputs how much money to withdraw. If the withdraw amount is greater
     # than the balance, the user is given a warning and not allowed to withdraw
     # that amount. Otherwise, the balance is adjusted and returned.
-    def withdraw(amount)
+    def withdraw(dollar_amount)
       if (@balance - amount) < 0
         puts "I'm sorry, you cannot withdraw that amount, as you do not have enough money in your account."
       else
@@ -46,8 +51,8 @@ module Bank
 
     # The user inputs how much is to be deposited and the balance reflects that
     # deposit
-    def deposit(amount)
-      @balance += amount
+    def deposit(dollar_amount)
+      @balance += dollar_amount
       return @balance
     end
 
@@ -93,7 +98,6 @@ end
 
 # b = Bank::Account.find(1212)
 # puts b
-
 
 # bank_branch.each do |a|
 #   puts a.balance
