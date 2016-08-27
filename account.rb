@@ -1,9 +1,9 @@
 # If running this program on its own, the items commented out in
 # def initialize need to be un-commented. To get savings_account.rb,
 # checking_account.rb, and money_market_account.rb to work, I had
-# to disable the hash creation in this program.
+# to disable the hash creation in this program. I do not understand
+# why, so any theories you have would be appreciated!
 
-#require_relative 'owner'
 require 'csv'
 
 module Bank
