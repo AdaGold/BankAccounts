@@ -19,7 +19,7 @@ We will be working with the concept of bank accounts in order to explore more ob
 
 ### Learning Goals
 - Create a **class** inside of a **module**
-- Create **methods** inside the **class* to perform actions
+- Create **methods** inside the **class** to perform actions
 - Learn how Ruby does error handling
 
 ### Requirements
@@ -32,11 +32,11 @@ Create an `Account` class which should have the following functionality:
 - Should have a `deposit` method that accepts a single parameter which represents the amount of money that will be deposited. This method should return the updated account balance.
 - Should be able to access the current `balance` of an account at any time.
 
-### Error handling
+#### Error handling
 - A new account cannot be created with initial negative balance - this will `raise` an `ArgumentError` (Google this)
 - The `withdraw` method does not allow the account to go negative - Will output a warning message and return the original un-modified balance
 
-#### Optional:
+### Optional:
 - Create an `Owner` class which will store information about those who own the `Accounts`.
   - This should have info like name and address and any other identifying information that an account owner would have.
 - Add an `owner` property to each Account to track information about who owns the account.
@@ -100,6 +100,10 @@ This type of table, where records from other tables are assoicated with each oth
 - Enhance functionality built in Wave 1
 
 ### Requirements
+
+For wave 3, you will create two new classes: `SavingsAccount` and `CheckingAccount`. Both should inherit behavior from the `Account` class.
+
+#### SavingsAccount
 Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include the following updated functionality:
 - The initial balance cannot be less than $10. If it is, this will `raise` an `ArgumentError`
 - Updated withdrawal functionality:
@@ -112,6 +116,7 @@ It should include the following new method:
   - The formula for calculating interest is `balance * rate/100`
     - Example: If the interest rate is 0.25% and the balance is $10,000, then the interest that is returned is $25 and the new balance becomes $10,025.
 
+#### CheckingAccount
 Create a `CheckingAccount` class which should inherit behavior from the `Account` class. It should include the following updated functionality:
 - Updated withdrawal functionality:
   - Each withdrawal 'transaction' incurs a fee of $1 that is taken out of the balance. Returns the updated account balance.
@@ -122,7 +127,7 @@ Create a `CheckingAccount` class which should inherit behavior from the `Account
 - `#reset_checks`: Resets the number of checks used to zero
 
 
-## Optional:
+### Optional:
 
 Create a `MoneyMarketAccount` class which should inherit behavior from the `Account` class.
 - A maximum of 6 transactions (deposits or withdrawals) are allowed per month on this account type
