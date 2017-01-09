@@ -56,34 +56,43 @@ Create an `Account` class which should have the following functionality:
   - `self.all` - returns a collection of `Account` instances, representing all of the Accounts described in the CSV. See below for the CSV file specifications
   - `self.find(id)` - returns an instance of `Account` where the value of the id field in the CSV matches the passed parameter
 
+#### CSV Data File
+
+The data, in order in the CSV, consists of:  
+
+| Field    | Type     | Description
+|----------|----------|------------
+| ID       | Fixnum   | A unique identifier for that Account  
+| Balance  | Fixnum   | The account balance amount, in cents (i.e., 150 would be $1.50)  
+| OpenDate | Datetime | When the account was opened  
+
+### Optional:
+First, implement the optional requirement from Wave 1
+
+Then, add the following **class** methods to your existing `Owner` class
+  - `self.all` - returns a collection of `Owner` instances, representing all of the Owners described in the CSV. See below for the CSV file specifications
+  - `self.find(id)` - returns an instance of `Owner` where the value of the id field in the CSV matches the passed parameter
 
 #### CSV Data File
-  Bank::Account
+The data, in order in the CSV, consists of:
 
-  The data, in order in the CSV, consists of:  
-  **ID** - (Fixnum) a unique identifier for that Account  
-  **Balance** - (Fixnum) the account balance amount, in cents (i.e., 150 would be $1.50)  
-  **OpenDate** - (Datetime) when the account was opened  
+| Field          | Type   | Description
+|----------------|--------|------------
+| ID             | Fixnum | A unique identifier for that Owner
+| Last Name      | String | The owner's last name   
+| First Name     | String | The owner's first name  
+| Street Address | String | The owner's street address  
+| City           | String | The owner's city  
+| State          | String | The owner's state  
 
-#### Optional:
-  - Implement the optional requirement from Wave 1
-  - Add the following **class** methods to your existing `Owner` class
-    - `self.all` - returns a collection of `Owner` instances, representing all of the Owners described in the CSV. See below for the CSV file specifications
-    - `self.find(id)` - returns an instance of `Owner` where the value of the id field in the CSV matches the passed parameter
+To create the relationship between the accounts and the owners use the `account_owners` CSV file. The data for this file, in order in the CSV, consists of:
 
-    Bank::Owner  
-    The data, in order in the CSV, consists of:  
-    **ID** - (Fixnum) a unique identifier for that Owner  
-    **Last Name** - (String) the owner's last name   
-    **First Name** - (String) the owner's first name  
-    **Street Addess** - (String) the owner's street address  
-    **City** - (String) the owner's city  
-    **State** - (String) the owner's state  
+| Field      | Type   | Description
+|------------|--------|------------
+| Account ID | Fixnum | A unique identifier corresponding to an Account
+| Owner ID   | Fixnum | A unique identifier corresponding to an Owner
 
-    To create the relationship between the accounts and the owners use the `account_owners` CSV file.
-    The data for this file, in order in the CSV, consists of:
-    **Account ID** - (Fixnum) a unique identifier corresponding to an account
-    **Owner ID** - (Fixnum) a unique identifier corresponding to an owner
+This type of table, where records from other tables are assoicated with each other, is often called a _join table_. We'll talk about them as a class in a few weeks.
 
 ## Wave 3
 ### Learning Goals
