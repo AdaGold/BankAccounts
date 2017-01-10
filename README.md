@@ -4,14 +4,9 @@ We will be working with the concept of bank accounts in order to explore more ob
 
 ## Baseline Setup
 
-1. This is an individual project.
-1. Clone the project master repo and create a new branch with your initials.
-1. Push your branch so it will show in the list of branches on the project master.
-1. Fork the project master.
+1. Fork this repository
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
-1. Switch to your branch by doing `git checkout [YOUR BRANCH NAME]`. *Do not work on the master branch*.
 1. `cd` into the dir create:d `$ cd BankAccounts`
-1. Run `git status` to verify the branch you are on
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.
 
 
@@ -42,7 +37,7 @@ Create an `Account` class which should have the following functionality:
 - Add an `owner` property to each Account to track information about who owns the account.
   - The `Account` can be created with an `owner`, OR you can create a method that will add the `owner` after the `Account` has already been created.
 
-
+<!--
 ## Wave 2
 
 ### Learning Goals
@@ -127,3 +122,4 @@ Create a `MoneyMarketAccount` class which should inherit behavior from the `Acco
 - `#add_interest(rate)`: Calculate the interest on the balance and add the interest to the balance. Return the interest that was calculated and added to the balance (not the updated balance).
     - Note** This is the same as the `SavingsAccount` interest.
 - `#reset_transactions`: Resets the number of transactions to zero
+-->
