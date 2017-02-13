@@ -21,6 +21,7 @@ We will be working with the concept of bank accounts in order to explore more ob
 - Create a **class** inside of a **module**
 - Create **methods** inside the **class** to perform actions
 - Learn how Ruby does error handling
+- Verify code correctness by **testing**
 
 ### Requirements
 
@@ -33,15 +34,40 @@ Create an `Account` class which should have the following functionality:
 - Should be able to access the current `balance` of an account at any time.
 
 #### Error handling
+
 - A new account cannot be created with initial negative balance - this will `raise` an `ArgumentError` (Google this)
-- The `withdraw` method does not allow the account to go negative - Will output a warning message and return the original un-modified balance
+- The `withdraw` method does not allow the account to go negative. Instead it will output a warning message and return the original un-modified balance
+
+#### Testing
+
+To ensure the what we've built is correct, we'll write tests alongside the code. To get started we've provided you with a basic `assertions.rb` in the `test` directory, which should look very familiar. Feel free to edit this file and add more assertions as you see fit.
+
+To write tests, add a new file `test/account_test.rb`. At the top, use `require_relative` to access the assertions and your account code:
+
+```ruby
+require_relative 'assertions'
+require_relative '../account'
+```
+
+Run the tests from the project root with
+
+```bash
+$ ruby test/account_test.rb
+```
+
+At a minimum, you should have one test for each of the behavior requirements above, as well as one for each error case (that's 6 tests minimum). Each test you write should have the following form:
+
+1. Use `puts` to write a descriptive name to the console
+1. Create a new `Account` object
+1. Do things to the `Account`, and assert that the results are correct
 
 ### Optional:
+Make sure to write tests for any optionals you implement!
+
 - Create an `Owner` class which will store information about those who own the `Accounts`.
   - This should have info like name and address and any other identifying information that an account owner would have.
 - Add an `owner` property to each Account to track information about who owns the account.
   - The `Account` can be created with an `owner`, OR you can create a method that will add the `owner` after the `Account` has already been created.
-
 
 ## Wave 2
 
@@ -53,8 +79,9 @@ Create an `Account` class which should have the following functionality:
 - Update the `Account` class to be able to handle all of these fields from the CSV file used as input.
   - For example, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your Account using that data
 - Add the following **class** methods to your existing `Account` class
-  - `self.all` - returns a collection of `Account` instances, representing all of the Accounts described in the CSV. See below for the CSV file specifications
-  - `self.find(id)` - returns an instance of `Account` where the value of the id field in the CSV matches the passed parameter
+  - `self.all` - returns a collection of `Account` instances, representing all of the Accounts described in the CSV. See below for the CSV file specifications.
+  - `self.find(id)` - returns an instance of `Account` where the value of the id field in the CSV matches the passed parameter.
+    - **Question:** what should your program do if `Account.find` is called with an ID that doesn't exist?
 
 #### CSV Data File
 
@@ -64,7 +91,11 @@ The data, in order in the CSV, consists of:
 |----------|----------|------------
 | ID       | Fixnum   | A unique identifier for that Account  
 | Balance  | Fixnum   | The account balance amount, in cents (i.e., 150 would be $1.50)  
-| OpenDate | Datetime | When the account was opened  
+| OpenDate | Datetime | When the account was opened
+
+#### Testing:
+
+Since it doesn't take any parameters, `Account.all` only needs one test. `Account.find` will need one for when the ID exists, and one for when it does not.
 
 ### Optional:
 First, implement the optional requirement from Wave 1
