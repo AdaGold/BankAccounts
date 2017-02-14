@@ -8,7 +8,7 @@ describe "Wave 1" do
     it "Takes an ID and an initial balance" do
       id = 1337
       balance = 100.0
-      account = Account.new(id, balance)
+      account = Bank::Account.new(id, balance)
 
       account.must_respond_to :id
       account.id.must_equal id
@@ -23,35 +23,115 @@ describe "Wave 1" do
       # This code checks that, when the proc is executed, it
       # raises an ArgumentError.
       proc {
-        Account.new(1337, -100.0)
+        Bank::Account.new(1337, -100.0)
       }.must_raise ArgumentError
     end
 
-    it "Can be made with a balance of 0" do
+    it "Can be created with a balance of 0" do
       # If this raises, the test will fail. No 'must's needed!
-      Account.new(1337, 0)
+      Bank::Account.new(1337, 0)
     end
   end
 
   describe "Account#withdraw" do
     it "Reduces the balance" do
+      start_balance = 100.0
+      withdrawal_amount = 25.0
+      account = Bank::Account.new(1337, start_balance)
+
+      account.withdraw(withdrawal_amount)
+
+      expected_balance = start_balance - withdrawal_amount
+      account.balance.must_equal expected_balance
     end
 
     it "Returns the modified balance" do
+      start_balance = 100.0
+      withdrawal_amount = 25.0
+      account = Bank::Account.new(1337, start_balance)
+
+      updated_balance = account.withdraw(withdrawal_amount)
+
+      expected_balance = start_balance - withdrawal_amount
+      updated_balance.must_equal expected_balance
     end
 
     it "Outputs a warning if the account would go negative" do
+      start_balance = 100.0
+      withdrawal_amount = 200.0
+      account = Bank::Account.new(1337, start_balance)
+
+      # Another proc! This test expects something to be printed
+      # to the terminal, using 'must_output'. /.+/ is a regular
+      # expression matching one or more characters - as long as
+      # anything at all is printed out the test will pass.
+      proc {
+        account.withdraw(withdrawal_amount)
+      }.must_output /.+/
     end
 
     it "Doesn't modify the balance if the account would go negative" do
+      start_balance = 100.0
+      withdrawal_amount = 200.0
+      account = Bank::Account.new(1337, start_balance)
+
+      updated_balance = account.withdraw(withdrawal_amount)
+
+      # Both the value returned and the balance in the account
+      # must be un-modified.
+      updated_balance.must_equal start_balance
+      account.balance.must_equal start_balance
+    end
+
+    it "Allows the balance to go to 0" do
+      account = Bank::Account.new(1337, 100.0)
+      updated_balance = account.withdraw(account.balance)
+      updated_balance.must_equal 0
+      account.balance.must_equal 0
+    end
+
+    it "Requires a positive withdrawal amount" do
+      start_balance = 100.0
+      withdrawal_amount = -25.0
+      account = Bank::Account.new(1337, start_balance)
+
+      proc {
+        account.withdraw(withdrawal_amount)
+      }.must_raise ArgumentError
     end
   end
 
   describe "Account#deposit" do
     it "Increases the balance" do
+      start_balance = 100.0
+      deposit_amount = 25.0
+      account = Bank::Account.new(1337, start_balance)
+
+      account.deposit(deposit_amount)
+
+      expected_balance = start_balance + deposit_amount
+      account.balance.must_equal expected_balance
     end
 
     it "Returns the modified balance" do
+      start_balance = 100.0
+      deposit_amount = 25.0
+      account = Bank::Account.new(1337, start_balance)
+
+      updated_balance = account.deposit(deposit_amount)
+
+      expected_balance = start_balance + deposit_amount
+      updated_balance.must_equal expected_balance
+    end
+
+    it "Requires a positive deposit amount" do
+      start_balance = 100.0
+      deposit_amount = -25.0
+      account = Bank::Account.new(1337, start_balance)
+
+      proc {
+        account.deposit(deposit_amount)
+      }.must_raise ArgumentError
     end
   end
 end
@@ -78,14 +158,14 @@ end
 xdescribe "Wave 3" do
   describe "SavingsAccount" do
     it "Is a kind of Account" do
-      account = SavingsAccount.new(12345, 100.0)
+      account = Bank::SavingsAccount.new(12345, 100.0)
       account.must_be_kind_of Account
     end
   end
 
   describe "CheckingAccount" do
     it "Is a kind of Account" do
-      account = CheckingAccount.new(12345, 100.0)
+      account = Bank::CheckingAccount.new(12345, 100.0)
       account.must_be_kind_of Account
     end
   end
