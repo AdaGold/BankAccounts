@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 
-# TODO: uncomment the next line once you start wave 3
+# TODO: uncomment the next line once you start wave 3 and add lib/savings_account.rb
 # require_relative '../lib/savings_account'
 
 # Because a SavingsAccount is a kind
