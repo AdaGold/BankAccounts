@@ -11,6 +11,19 @@ We will be working with the concept of bank accounts in order to explore more ob
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.
 1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
+### Testing
+
+This is our first project with real tests! Following the instructions from the [TDD lecture](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/08-intro-to-automated-tests.md), there are three things in our project directory:
+
+```
+Rakefile
+lib/
+specs/
+```
+
+Each class you write (there will only be one until wave 3) should get its own file, `lib/class_name.rb`. The specs for that class will be in `specs/class_name_spec.rb`, and you can run all specs using `rake`.
+
+For wave 1, all tests will be given to you - your job is to write code to make them pass. For waves 2 and 3, we supply descriptions of the tests, but you have to write them yourself.
 
 ## Wave 1
 
