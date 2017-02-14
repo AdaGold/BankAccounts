@@ -9,6 +9,7 @@ We will be working with the concept of bank accounts in order to explore more ob
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
 1. `cd` into the dir create:d `$ cd BankAccounts`
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.
+1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
 
 ## Wave 1
