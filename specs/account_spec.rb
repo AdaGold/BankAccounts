@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
-require_relative '../lib/bank_accounts'
+require_relative '../lib/account'
 
 describe "Wave 1" do
   describe "Account#initialize" do
@@ -158,126 +158,6 @@ xdescribe "Wave 2" do
 
     it "Raises an error for an account that doesn't exist" do
       # TODO: Your test code here!
-    end
-  end
-end
-
-xdescribe "Wave 3" do
-  # Because a SavingsAccount and CheckingAccount are both kinds
-  # of Account, and we've already tested a bunch of functionality
-  # on Account, we effectively get all that testing for free!
-  # Here we'll only test things that are different.
-  describe "SavingsAccount" do
-    describe "#initialize" do
-      it "Is a kind of Account" do
-        # Check that a SavingsAccount is in fact a kind of account
-        account = Bank::SavingsAccount.new(12345, 100.0)
-        account.must_be_kind_of Bank::Account
-      end
-
-      it "Requires an initial balance of at least $10" do
-        # TODO: Your test code here!
-      end
-    end
-
-    describe "#withdraw" do
-      it "Applies a $2 fee each time" do
-        # TODO: Your test code here!
-      end
-
-      it "Outputs a warning if the balance would go below $10" do
-        # TODO: Your test code here!
-      end
-
-      it "Doesn't modify the balance if it would go below $10" do
-        # TODO: Your test code here!
-      end
-
-      it "Doesn't modify the balance if the fee would put it below $10" do
-        # TODO: Your test code here!
-      end
-    end
-
-    describe "#add_interest" do
-      it "Returns the interest calculated" do
-        # TODO: Your test code here!
-      end
-
-      it "Updates the balance with calculated interest" do
-        # TODO: Your test code here!
-      end
-
-      it "Requires a positive rate" do
-        # TODO: Your test code here!
-      end
-    end
-  end
-
-  describe "CheckingAccount" do
-    describe "#initialize" do
-      # Check that a CheckingAccount is in fact a kind of account
-      it "Is a kind of Account" do
-        account = Bank::CheckingAccount.new(12345, 100.0)
-        account.must_be_kind_of Bank::Account
-      end
-    end
-
-    describe "#withdraw" do
-      it "Applies a $1 fee each time" do
-        # TODO: Your test code here!
-      end
-
-      it "Doesn't modify the balance if the fee would put it negative" do
-        # TODO: Your test code here!
-      end
-    end
-
-    describe "#withdraw_using_check" do
-      it "Reduces the balance" do
-        # TODO: Your test code here!
-      end
-
-      it "Returns the modified balance" do
-        # TODO: Your test code here!
-      end
-
-      it "Allows the balance to go down to -$10" do
-        # TODO: Your test code here!
-      end
-
-      it "Outputs a warning if the account would go below -$10" do
-        # TODO: Your test code here!
-      end
-
-      it "Doesn't modify the balance if the account would go below -$10" do
-        # TODO: Your test code here!
-      end
-
-      it "Requires a positive withdrawal amount" do
-        # TODO: Your test code here!
-      end
-
-      it "Allows 3 free uses" do
-        # TODO: Your test code here!
-      end
-
-      it "Applies a $2 fee after the third use" do
-        # TODO: Your test code here!
-      end
-    end
-
-    describe "#reset_checks" do
-      it "Can be called without error" do
-        # TODO: Your test code here!
-      end
-
-      it "Makes the next three checks free if less than 3 checks had been used" do
-        # TODO: Your test code here!
-      end
-
-      it "Makes the next three checks free if more than 3 checks had been used" do
-        # TODO: Your test code here!
-      end
     end
   end
 end
