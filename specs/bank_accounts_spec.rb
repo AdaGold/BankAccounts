@@ -139,8 +139,15 @@ end
 # TODO: change 'xdescribe' to 'describe' to run these tests
 xdescribe "Wave 2" do
   describe "Account.all" do
-    it "Returns all accounts" do
+    it "Returns an array of all accounts" do
       # TODO: Your test code here!
+      # Useful checks might include:
+      #   - Account.all returns an array
+      #   - Everything in the array is an Account
+      #   - The number of accounts is correct
+      #   - The ID and balance of the first and last
+      #       accounts match what's in the CSV file
+      # Feel free to split this into multiple tests if needed
     end
   end
 
@@ -149,24 +156,68 @@ xdescribe "Wave 2" do
       # TODO: Your test code here!
     end
 
-    it "Throws an error for an account that doesn't exist" do
+    it "Raises an error for an account that doesn't exist" do
       # TODO: Your test code here!
     end
   end
 end
 
 xdescribe "Wave 3" do
+  # Because a SavingsAccount and CheckingAccount are both kinds
+  # of Account, and we've already tested a bunch of functionality
+  # on Account, we effectively get all that testing for free!
+  # Here we'll only test things that are different.
   describe "SavingsAccount" do
-    it "Is a kind of Account" do
-      account = Bank::SavingsAccount.new(12345, 100.0)
-      account.must_be_kind_of Account
+    describe "#initialize" do
+      it "Is a kind of Account" do
+        # Check that a SavingsAccount is in fact a kind of account
+        account = Bank::SavingsAccount.new(12345, 100.0)
+        account.must_be_kind_of Bank::Account
+      end
+
+      it "Requires an initial balance of at least $10" do
+        # TODO: Your test code here!
+      end
+    end
+
+    describe "#withdraw" do
+      it "Applies a $2 fee" do
+        # TODO: Your test code here!
+      end
+
+      it "Outputs a warning if the balance would go below $10" do
+        # TODO: Your test code here!
+      end
+
+      it "Doesn't modify the balance if it would go below $10" do
+        # TODO: Your test code here!
+      end
+
+      it "Doesn't modify the balance if the fee would put it below $10" do
+        # TODO: Your test code here!
+      end
+    end
+
+    describe "#add_interest" do
+      it "Returns the interest calculated" do
+        # TODO: Your test code here!
+      end
+
+      it "Updates the balance with calculated interest" do
+        # TODO: Your test code here!
+      end
+
+      it "Requires a positive rate" do
+        # TODO: Your test code here!
+      end
     end
   end
 
   describe "CheckingAccount" do
+    # Check that a CheckingAccount is in fact a kind of account
     it "Is a kind of Account" do
       account = Bank::CheckingAccount.new(12345, 100.0)
-      account.must_be_kind_of Account
+      account.must_be_kind_of Bank::Account
     end
   end
 end
