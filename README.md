@@ -36,7 +36,7 @@ Create an `Account` class which should have the following functionality:
 #### Error handling
 
 - A new account cannot be created with initial negative balance - this will `raise` an `ArgumentError` (Google this)
-- The `withdraw` method does not allow the account to go negative. Instead it will output a warning message and return the original un-modified balance
+- The `withdraw` method does not allow the account to go negative. Instead it will output a warning message and return the original un-modified balance.
 
 #### Testing
 
