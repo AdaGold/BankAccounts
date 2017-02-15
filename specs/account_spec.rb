@@ -156,6 +156,14 @@ xdescribe "Wave 2" do
       # TODO: Your test code here!
     end
 
+    it "Can find the first account from the CSV" do
+      # TODO: Your test code here!
+    end
+
+    it "Can find the last account from the CSV" do
+      # TODO: Your test code here!
+    end
+
     it "Raises an error for an account that doesn't exist" do
       # TODO: Your test code here!
     end
