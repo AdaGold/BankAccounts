@@ -76,8 +76,8 @@ The data, in order in the CSV, consists of:
 
 | Field    | Type     | Description
 |----------|----------|------------
-| ID       | Fixnum   | A unique identifier for that Account  
-| Balance  | Fixnum   | The account balance amount, in cents (i.e., 150 would be $1.50)  
+| ID       | Integer   | A unique identifier for that Account
+| Balance  | Integer   | The account balance amount, in cents (i.e., 150 would be $1.50)
 | OpenDate | Datetime | When the account was opened
 
 ### Optional:
@@ -90,23 +90,23 @@ Then, add the following **class** methods to your existing `Owner` class
 #### CSV Data File
 The data, in order in the CSV, consists of:
 
-| Field          | Type   | Description
-|----------------|--------|------------
-| ID             | Fixnum | A unique identifier for that Owner
-| Last Name      | String | The owner's last name   
-| First Name     | String | The owner's first name  
-| Street Address | String | The owner's street address  
-| City           | String | The owner's city  
-| State          | String | The owner's state  
+| Field          | Type    | Description
+|----------------|---------|------------
+| ID             | Integer | A unique identifier for that Owner
+| Last Name      | String  | The owner's last name
+| First Name     | String  | The owner's first name
+| Street Address | String  | The owner's street address
+| City           | String  | The owner's city
+| State          | String  | The owner's state
 
 To create the relationship between the accounts and the owners use the `account_owners` CSV file. The data for this file, in order in the CSV, consists of:
 
-| Field      | Type   | Description
-|------------|--------|------------
-| Account ID | Fixnum | A unique identifier corresponding to an Account
-| Owner ID   | Fixnum | A unique identifier corresponding to an Owner
+| Field      | Type    | Description
+|------------|---------|------------
+| Account ID | Integer | A unique identifier corresponding to an Account
+| Owner ID   | Integer | A unique identifier corresponding to an Owner
 
-This type of table, where records from other tables are assoicated with each other, is often called a _join table_. We'll talk about them as a class in a few weeks.
+This type of table, where records from other tables are associated with each other, is often called a _join table_. We'll talk about them as a class in a few weeks.
 
 ## Wave 3
 ### Learning Goals
