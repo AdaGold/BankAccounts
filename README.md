@@ -9,7 +9,21 @@ We will be working with the concept of bank accounts in order to explore more ob
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
 1. `cd` into the dir create:d `$ cd BankAccounts`
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.
+1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
+### Testing
+
+This is our first project with real tests! Following the instructions from the [TDD lecture](https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/00-programming-fundamentals/08-intro-to-automated-tests.md), there are three things in our project directory:
+
+```
+Rakefile
+lib/
+specs/
+```
+
+Each class you write (there will only be one until wave 3) should get its own file, `lib/class_name.rb`. The specs for that class will be in `specs/class_name_spec.rb`, and you can run all specs using `rake`.
+
+For wave 1, all tests will be given to you - your job is to write code to make them pass. For waves 2 and 3, we supply descriptions of the tests, but you have to write them yourself.
 
 ## Wave 1
 
@@ -17,6 +31,7 @@ We will be working with the concept of bank accounts in order to explore more ob
 - Create a **class** inside of a **module**
 - Create **methods** inside the **class** to perform actions
 - Learn how Ruby does error handling
+- Verify code correctness by **testing**
 
 ### Requirements
 
@@ -29,15 +44,17 @@ Create an `Account` class which should have the following functionality:
 - Should be able to access the current `balance` of an account at any time.
 
 #### Error handling
+
 - A new account cannot be created with initial negative balance - this will `raise` an `ArgumentError` (Google this)
-- The `withdraw` method does not allow the account to go negative - Will output a warning message and return the original un-modified balance
+- The `withdraw` method does not allow the account to go negative. Instead it will output a warning message and return the original un-modified balance.
 
 ### Optional:
+Make sure to write tests for any optionals you implement!
+
 - Create an `Owner` class which will store information about those who own the `Accounts`.
   - This should have info like name and address and any other identifying information that an account owner would have.
 - Add an `owner` property to each Account to track information about who owns the account.
   - The `Account` can be created with an `owner`, OR you can create a method that will add the `owner` after the `Account` has already been created.
-
 
 ## Wave 2
 
@@ -49,8 +66,9 @@ Create an `Account` class which should have the following functionality:
 - Update the `Account` class to be able to handle all of these fields from the CSV file used as input.
   - For example, manually choose the data from the first line of the CSV file and ensure you can create a new instance of your Account using that data
 - Add the following **class** methods to your existing `Account` class
-  - `self.all` - returns a collection of `Account` instances, representing all of the Accounts described in the CSV. See below for the CSV file specifications
-  - `self.find(id)` - returns an instance of `Account` where the value of the id field in the CSV matches the passed parameter
+  - `self.all` - returns a collection of `Account` instances, representing all of the Accounts described in the CSV. See below for the CSV file specifications.
+  - `self.find(id)` - returns an instance of `Account` where the value of the id field in the CSV matches the passed parameter.
+    - **Question:** what should your program do if `Account.find` is called with an ID that doesn't exist?
 
 #### CSV Data File
 
@@ -60,7 +78,7 @@ The data, in order in the CSV, consists of:
 |----------|----------|------------
 | ID       | Fixnum   | A unique identifier for that Account  
 | Balance  | Fixnum   | The account balance amount, in cents (i.e., 150 would be $1.50)  
-| OpenDate | Datetime | When the account was opened  
+| OpenDate | Datetime | When the account was opened
 
 ### Optional:
 First, implement the optional requirement from Wave 1
@@ -97,7 +115,7 @@ This type of table, where records from other tables are assoicated with each oth
 
 ### Requirements
 
-For wave 3, you will create two new classes: `SavingsAccount` and `CheckingAccount`. Both should inherit behavior from the `Account` class.
+For wave 3, you will create two new classes: `SavingsAccount` and `CheckingAccount`. Both should inherit behavior from the `Account` class. Each class should get its own file under the `lib/` directory, and each already has a spec file with stub tests.
 
 #### SavingsAccount
 Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include the following updated functionality:
