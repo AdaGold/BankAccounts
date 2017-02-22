@@ -56,7 +56,7 @@ Make sure to write tests for any optionals you implement!
 - Add an `owner` property to each Account to track information about who owns the account.
   - The `Account` can be created with an `owner`, OR you can create a method that will add the `owner` after the `Account` has already been created.
 
-<!--
+
 
 ## Wave 2
 
@@ -110,7 +110,7 @@ To create the relationship between the accounts and the owners use the `account_
 
 This type of table, where records from other tables are associated with each other, is often called a _join table_. We'll talk about them as a class in a few weeks.
 
--->
+
 <!--
 
 ## Wave 3
