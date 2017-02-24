@@ -38,10 +38,10 @@ For wave 1, all tests will be given to you - your job is to write code to make t
 Create a `Bank` module which will contain your `Account` class and any future bank account logic.
 
 Create an `Account` class which should have the following functionality:
-- A new account should be created with an ID and an initial balance
-- Should have a `withdraw` method that accepts a single parameter which represents the amount of money that will be withdrawn. This method should return the updated account balance.
-- Should have a `deposit` method that accepts a single parameter which represents the amount of money that will be deposited. This method should return the updated account balance.
-- Should be able to access the current `balance` of an account at any time.
+- A new account should be created with an ID and an initial balance in **cents** (i.e., 150 would be $1.50).
+- Should have a `withdraw` method that accepts a single parameter which represents the amount of money that will be withdrawn in cents. This method should return the updated account balance.
+- Should have a `deposit` method that accepts a single parameter which represents the amount of money that will be deposited in cents. This method should return the updated account balance.
+- Should be able to access the current `balance` in cents of an account at any time.
 
 #### Error handling
 
@@ -119,7 +119,7 @@ For wave 3, you will create two new classes: `SavingsAccount` and `CheckingAccou
 
 #### SavingsAccount
 Create a `SavingsAccount` class which should inherit behavior from the `Account` class. It should include the following updated functionality:
-- The initial balance cannot be less than $10. If it is, this will `raise` an `ArgumentError`
+- The initial balance cannot be less than $10 (1000 cents). If it is, this will `raise` an `ArgumentError`
 - Updated withdrawal functionality:
   - Each withdrawal 'transaction' incurs a fee of $2 that is taken out of the balance.
   - Does not allow the account to go below the $10 minimum balance - Will output a warning message and return the original un-modified balance
