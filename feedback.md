@@ -12,9 +12,9 @@
 |   Used `CSV` library only in `Account.all` (not in `Account.find`) |   | 
 |   Used `Account.all` to get account list in `Account.find`	|   	|
 |  **Wave 3** |   |
+|   All stubbed tests are implemented fully and pass |  |
 |   Used inheritance in the initialize for both Checking and Savings Accounts (min balance)	|   	|
 |   Used inheritance for the withdraw in checking and savings accounts |  |
-|   Tests |   |
 |  **Baseline** |   |
 |   Used Git Regularly	|   	|
 |   Answer comprehension questions	|   	|
