@@ -14,6 +14,7 @@
 |  **Wave 3** |   |
 |   Used inheritance in the initialize for both Checking and Savings Accounts (min balance)	|   	|
 |   Used inheritance for the withdraw in checking and savings accounts |  |
+|   Tests |   |
 |  **Baseline** |   |
 |   Used Git Regularly	|   	|
 |   Answer comprehension questions	|   	|
