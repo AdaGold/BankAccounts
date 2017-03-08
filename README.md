@@ -113,7 +113,7 @@ This type of table, where records from other tables are associated with each oth
 ### Learning Goals
 - Use inheritance to share some behavior across classes
 - Enhance functionality built in Wave 1
-- Add your own tests new classes and inherited functionality.
+- Add tests for all new classes and inherited functionality.
 
 ### Requirements
 
