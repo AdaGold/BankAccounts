@@ -61,6 +61,7 @@ Make sure to write tests for any optionals you implement!
 ### Learning Goals
 - Create and use class methods
 - Use a CSV file for loading data
+- Create your own tests to verify method correctness.
 
 ### Requirements
 - Update the `Account` class to be able to handle all of these fields from the CSV file used as input.
@@ -112,6 +113,7 @@ This type of table, where records from other tables are associated with each oth
 ### Learning Goals
 - Use inheritance to share some behavior across classes
 - Enhance functionality built in Wave 1
+- Add tests for all new classes and inherited functionality.
 
 ### Requirements
 
